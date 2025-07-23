@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Tugas Halaman 72</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      section {
+        margin-bottom: 40px;
+      }
+      table,
+      th,
+      td {
+        border: 1px solid #333;
+        border-collapse: collapse;
+        padding: 5px;
+      }
+      th {
+        background: #eee;
+      }
+      input,
+      select,
+      textarea {
+        margin: 5px 0;
+      }
+      .output {
+        margin-top: 10px;
+        background: #f9f9f9;
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 1. Form Biodata Mahasiswa -->
+    <section>
+      <h2>1. Form Biodata Mahasiswa</h2>
+      <form id="formBiodata">
+        <label>NIM: <input type="text" name="nim" required /></label><br />
+        <label>Nama: <input type="text" name="nama" required /></label><br />
+        <label
+          >Jenis Kelamin:
+          <select name="jk">
+            <option value="Laki-laki">Laki-laki</option>
+            <option value="Perempuan">Perempuan</option>
+          </select> </label
+        ><br />
+        <label>Agama: <input type="text" name="agama" /></label><br />
+        <label>Status: <input type="text" name="status" /></label><br />
+        <label>Jurusan: <input type="text" name="jurusan" /></label><br />
+        <label
+          >Komentar:<br />
+          <textarea name="komentar" rows="3"></textarea></label
+        ><br />
+        <button type="submit">KIRIM</button>
+      </form>
+      <div id="outputBiodata" class="output"></div>
+    </section>
+
+    <!-- 2. Form Pemesanan Tiket Travel -->
+    <section>
+      <h2>2. Form Pemesanan Tiket Travel</h2>
+      <form id="formTiket">
+        <label>Nama Pemesan: <input type="text" name="nama" required /></label
+        ><br />
+        <label
+          >Tujuan:
+          <select name="tujuan">
+            <option value="Jakarta">Jakarta</option>
+            <option value="Solo">Solo</option>
+            <option value="Surabaya">Surabaya</option>
+          </select> </label
+        ><br />
+        <label
+          >Kelas:
+          <select name="kelas">
+            <option value="Eksekutif">Eksekutif</option>
+            <option value="Bisnis">Bisnis</option>
+            <option value="Ekonomi">Ekonomi</option>
+          </select> </label
+        ><br />
+        <label
+          >Banyak Tiket:
+          <input type="number" name="jumlah" min="1" value="1" /></label
+        ><br />
+        <label
+          >Status Member:
+          <select name="member">
+            <option value="Ya">Anggota</option>
+            <option value="Tidak">Bukan Anggota</option>
+          </select> </label
+        ><br />
+        <button type="submit">Pesan</button>
+      </form>
+      <div id="outputTiket" class="output"></div>
+      <table>
+        <tr>
+          <th></th>
+          <th>Eksekutif</th>
+          <th>Bisnis</th>
+          <th>Ekonomi</th>
+        </tr>
+        <tr>
+          <td>Jakarta</td>
+          <td>70000</td>
+          <td>40000</td>
+          <td>10000</td>
+        </tr>
+        <tr>
+          <td>Solo</td>
+          <td>80000</td>
+          <td>50000</td>
+          <td>20000</td>
+        </tr>
+        <tr>
+          <td>Surabaya</td>
+          <td>90000</td>
+          <td>60000</td>
+          <td>30000</td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- 3. Faktorial dan Deret -->
+    <section>
+      <h2>3. Perhitungan Faktorial dan Deret</h2>
+      <form id="formFaktorial">
+        <label
+          >Masukkan N: <input type="number" name="n" min="1" required
+        /></label>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+      </form>
+      <div id="outputFaktorial" class="output"></div>
+    </section>
+
+    <!-- 4. Simulasi Saldo Tabungan -->
+    <section>
+      <h2>4. Simulasi Saldo Tabungan</h2>
+      <form id="formTabungan">
+        <label
+          >Saldo Awal:
+          <input type="number" name="saldo" value="100000" required /></label
+        ><br />
+        <label
+          >Bunga (%):
+          <input type="number" name="bunga" value="10" required /></label
+        ><br />
+        <label
+          >Waktu (bulan):
+          <input type="number" name="waktu" value="3" required /></label
+        ><br />
+        <button type="submit">Hitung</button>
+      </form>
+      <div id="outputTabungan" class="output"></div>
+    </section>
+
+    <script>
+      // 1. Biodata
+      document.getElementById("formBiodata").onsubmit = function (e) {
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(e.target));
+        document.getElementById("outputBiodata").innerHTML = `<b>Output:</b><br>
+        NIM: ${data.nim}<br>
+        Nama: ${data.nama}<br>
+        Jenis Kelamin: ${data.jk}<br>
+        Agama: ${data.agama}<br>
+        Status: ${data.status}<br>
+        Jurusan: ${data.jurusan}<br>
+        Komentar: ${data.komentar}`;
+      };
+
+      // 2. Tiket Travel
+      const hargaTiket = {
+        Jakarta: { Eksekutif: 70000, Bisnis: 40000, Ekonomi: 10000 },
+        Solo: { Eksekutif: 80000, Bisnis: 50000, Ekonomi: 20000 },
+        Surabaya: { Eksekutif: 90000, Bisnis: 60000, Ekonomi: 30000 },
+      };
+      document.getElementById("formTiket").onsubmit = function (e) {
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(e.target));
+        const harga = hargaTiket[data.tujuan][data.kelas];
+        const subtotal = harga * data.jumlah;
+        const diskon = data.member === "Ya" ? subtotal * 0.1 : 0;
+        const total = subtotal - diskon;
+        document.getElementById("outputTiket").innerHTML = `<b>Output:</b><br>
+        Harga Tiket: Rp ${harga}<br>
+        Subtotal: Rp ${subtotal}<br>
+        Diskon: Rp ${diskon}<br>
+        Total Bayar: Rp ${total}`;
+      };
+
+      // 3. Faktorial dan Deret
+      document.getElementById("formFaktorial").onsubmit = function (e) {
+        e.preventDefault();
+        const n = parseInt(new FormData(e.target).get("n"));
+        let faktorial = 1,
+          jumlah = 0;
+        for (let i = 1; i <= n; i++) {
+          faktorial *= i;
+          jumlah += i;
+        }
+        document.getElementById(
+          "outputFaktorial"
+        ).innerHTML = `<b>Hasil:</b><br>
+        Faktorial (${n}!): ${faktorial}<br>
+        Jumlah Deret 1..${n}: ${jumlah}`;
+      };
+      document.getElementById("formFaktorial").onreset = function () {
+        document.getElementById("outputFaktorial").innerHTML = "";
+      };
+
+      // 4. Tabungan
+      document.getElementById("formTabungan").onsubmit = function (e) {
+        e.preventDefault();
+        const data = Object.fromEntries(new FormData(e.target));
+        let saldo = parseInt(data.saldo);
+        const bunga = parseFloat(data.bunga) / 100;
+        const waktu = parseInt(data.waktu);
+        let output = "";
+        for (let i = 1; i <= waktu; i++) {
+          saldo += saldo * bunga;
+          output += `Saldo Bulan ${i} = Rp. ${Math.round(saldo)}<br>`;
+        }
+        document.getElementById("outputTabungan").innerHTML = output;
+      };
+    </script>
+  </body>
+</html>
