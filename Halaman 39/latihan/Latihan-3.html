@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Lab Pemrograman Web</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f8f8f8;
+      }
+      header {
+        background: #222;
+        color: #fff;
+        padding: 16px 0 0 0;
+      }
+      nav {
+        background: #333;
+        display: flex;
+        gap: 24px;
+        padding: 8px 32px;
+      }
+      nav a {
+        color: #fff;
+        text-decoration: none;
+        padding: 6px 16px;
+        border-radius: 4px;
+        transition: background 0.2s;
+      }
+      nav a:hover {
+        background: #444;
+      }
+      .section {
+        background: #fff;
+        margin: 24px auto;
+        padding: 24px;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px #ccc;
+        max-width: 900px;
+      }
+      .quote {
+        font-size: 1.5em;
+        text-align: center;
+        margin-bottom: 24px;
+        color: #444;
+      }
+      .articles {
+        display: flex;
+        gap: 24px;
+      }
+      article {
+        background: #f3f3f3;
+        border-radius: 8px;
+        box-shadow: 0 1px 4px #bbb;
+        padding: 16px;
+        width: 45%;
+        position: relative;
+      }
+      .article-img {
+        width: 100%;
+        border-radius: 6px;
+        margin-bottom: 8px;
+      }
+      .article-title {
+        font-weight: bold;
+        margin-bottom: 6px;
+      }
+      .article-desc {
+        font-size: 0.95em;
+        color: #444;
+        margin-bottom: 12px;
+      }
+      .view-btn {
+        background: #2196f3;
+        color: #fff;
+        border: none;
+        padding: 6px 18px;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .view-btn:hover {
+        background: #1565c0;
+      }
+      .time {
+        position: absolute;
+        right: 16px;
+        bottom: 16px;
+        font-size: 0.9em;
+        color: #888;
+      }
+      footer {
+        text-align: right;
+        font-size: 0.9em;
+        color: #888;
+        margin: 32px 32px 0 0;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div style="font-size: 1.2em; font-weight: bold; padding-left: 32px">
+        Lab Pemrograman Web
+      </div>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#" id="profile-link">Profile</a>
+        <a href="#">Contact US</a>
+      </nav>
+    </header>
+    <div class="section">
+      <div class="quote">
+        "The purpose of our lives is to be happy."<br /><span
+          style="font-size: 0.8em; color: #888"
+          >- DALAI LAMA</span
+        >
+      </div>
+      <div class="articles">
+        <article>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Atom_diagram.png"
+            alt="Atom"
+            class="article-img"
+          />
+          <div class="article-title">Mengenal Partikel dan Notasi Atom</div>
+          <div class="article-desc">
+            An atom is the smallest unit of ordinary matter that forms a
+            chemical element. Every solid, liquid, gas, and plasma is composed
+            of neutral or ionized atoms.
+          </div>
+          <button
+            class="view-btn"
+            onclick="window.location.href='Latihan-1.html'"
+          >
+            View
+          </button>
+          <span class="time">9 mins</span>
+        </article>
+        <article>
+          <img
+            src="https://cdn.pixabay.com/photo/2017/01/06/19/15/orangutan-1955837_1280.jpg"
+            alt="Orang Utan"
+            class="article-img"
+          />
+          <div class="article-title">Daftar Hewan Dilindungi</div>
+          <div class="article-desc">
+            World Wildlife Fund is committed to endangered species protection.
+            See how we are ensuring that the world our children inherit will be
+            home to the same.
+          </div>
+          <button
+            class="view-btn"
+            onclick="window.location.href='Latihan-2.html'"
+          >
+            View
+          </button>
+          <span class="time">9 mins</span>
+        </article>
+      </div>
+    </div>
+    <footer>Copyright © Nama Anda 2022</footer>
+    <script>
+      document.getElementById("profile-link").onclick = function () {
+        window.location.href = "Latihan-4.html";
+      };
+    </script>
+  </body>
+</html>
